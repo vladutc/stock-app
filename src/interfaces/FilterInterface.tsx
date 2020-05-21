@@ -5,4 +5,5 @@ export interface FilterInterface {
     setSymbol: (event: ChangeEvent<HTMLInputElement>) => void;
     getDates: () => { startDate: string, endDate: string };
     setDates: (type:string) => (event: ChangeEvent<HTMLInputElement>) => void;
+    validDates: boolean;
 };
