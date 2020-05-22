@@ -2,16 +2,16 @@ import React from 'react';
 import Symbol from './Symbol';
 import Dates from './Dates';
 import Warning from './Warning';
-import FilterManager from '../../utils/FilterManager';
 
 const Filter = () => {
-    return <FilterManager>
+    return (<React.Fragment>
         <div className="filters">
             <Symbol />
             <Dates />
         </div>
-        <Warning/>
-    </FilterManager>
+        <Warning />
+    </React.Fragment>
+    )
 }
 
 export default Filter;

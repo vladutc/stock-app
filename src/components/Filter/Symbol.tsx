@@ -3,10 +3,10 @@ import { FilterContext } from '../../utils/FilterManager';
 import { FilterInterface } from '../../interfaces/FilterInterface';
 
 const Symbol: React.FC = () => {
-    const { getSymbol, setSymbol }: FilterInterface = useContext(FilterContext);
+    const { symbol, setSymbol }: FilterInterface = useContext(FilterContext);
     return (
         <label>Symbol:
-            <input value={getSymbol()} onChange={setSymbol} />
+            <input placeholder="Enter symbol (e.g. NFLX)" value={symbol} onChange={setSymbol} />
         </label>
     );
 }

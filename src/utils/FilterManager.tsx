@@ -2,7 +2,7 @@ import React, { useState, ChangeEvent } from 'react';
 import { FilterInterface } from '../interfaces/FilterInterface';
 import moment from 'moment';
 
-export const FilterContext = React.createContext<FilterInterface>({ getSymbol: () => '', setSymbol: (e) => {}, getDates: () => ({startDate:moment().format('yyyy-MM-DD'), endDate: moment().format('yyyy-MM-DD')}), setDates: (type) => (e) => {}, validDates: true});
+export const FilterContext = React.createContext<FilterInterface>({symbol: '', setSymbol: (e) => '', dates: {startDate: moment().format('yyyy-MM-DD'), endDate: moment().format('yyyy-MM-DD')}, setDates: (t) => (e) => '', validDates: true});
 
 const FilterManager = ({ children }: any) => {
     const [symbol, setSymbol] = useState('');
@@ -14,9 +14,9 @@ const FilterManager = ({ children }: any) => {
     const areDatesValid = () => moment(dates.startDate) <= moment(dates.endDate);
 
     const context = {
-        getSymbol: () => symbol,
+        symbol: symbol,
         setSymbol: (e: ChangeEvent<HTMLInputElement>) => setSymbol(e.target.value),
-        getDates: () => dates,
+        dates: dates,
         setDates: handleDateChange,
         validDates: areDatesValid()
     };
